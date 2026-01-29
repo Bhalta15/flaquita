@@ -1,4 +1,4 @@
-/* =========================
+ /* =========================
    RESET Y CONFIGURACIÓN BASE
    ========================= */
 *{
@@ -40,15 +40,31 @@ body{
 /* =========================
    TEXTOS
    ========================= */
+/* =========================
+   TITULO PRINCIPAL
+   ========================= */
 h1{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 15px;
+    white-space: nowrap; /* evita que se vaya a 2 líneas */
 }
 
+/* Ajuste solo para celular */
+@media (max-width: 480px){
+    h1{
+        font-size: 1.35rem; /* entra completo en una sola línea */
+    }
+}
+
+/* =========================
+   MENSAJE
+   ========================= */
 .mensaje{
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 25px;
+    text-align: justify;
+    text-align-last: center; /* última línea más bonita */
 }
 
 .instruccion{
@@ -385,4 +401,3 @@ button:hover{
     position: relative;
     z-index: 2;
 }
-

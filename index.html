@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Acceso especial 💖</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="index.css">
     
 </head>
 <body>
@@ -27,128 +28,6 @@
     <div id="error"></div>
 </div>
 
-<script src="js/index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
-
-<!-- INICIAN LO ESTILOS -->
-<style>
-    *{
-    box-sizing: border-box;
-}
-body{
-    margin: 0;
-    min-height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    overflow: hidden;
-}
-.card{
-    background: rgba(0,0,0,0.45);
-    padding: 25px 30px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 360px;
-    width: 90%;
-    box-shadow: 0 0 25px rgba(255,255,255,0.15);
-    animation: fadeIn 1.2s ease forwards;
-}
-/* Animación SOLO de entrada */
-@keyframes fadeIn{
-    from{
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h2{
-    margin-bottom: 10px;
-}
-p{
-    font-size: 0.95rem;
-    line-height: 1.4;
-    opacity: 0.9;
-}
-input{
-    width: 100%;
-    padding: 12px;
-    margin-top: 18px;
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    text-align: center;
-    outline: none;
-}
-button{
-    margin-top: 30px;
-    padding: 14px 45px;
-    border: none;
-    border-radius: 12px;
-    background: #6a19ff;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(208, 126, 255, 0.6);
-    transition: 0.3s;
-    font-weight: bold;
-
-}
-button:hover{
-    background: #f087fa;
-    transform: scale(1.03);
-}
-#error{
-    margin-top: 12px;
-    color: #ffb3b3;      
-    min-height: 20px;
-    font-size: 0.9rem;
-}
-.shake{
-    animation: shake 0.4s;
-}
-
-@keyframes shake{
-    0%{ transform: translateX(0); }
-    25%{ transform: translateX(-5px); }
-    50%{ transform: translateX(5px); }
-    75%{ transform: translateX(-5px); }
-    100%{ transform: translateX(0); }
-}
-</style>
-
-<!-- INICIA EL JS -->
- <script>
-    
-const input = document.getElementById("clave");
-
-input.addEventListener("keyup", function(e){
-    if(e.key === "Enter"){
-        entrar();
-    }
-});
-
-function entrar(){
-    const card = document.getElementById("card");
-    const error = document.getElementById("error");
-
-    // DEBUG: ver exactamente qué lee
-    console.log("Valor escrito:", input.value);
-
-    if(input.value === "Tribilin" || input.value === "tribilin"){
-        window.location.href = "cumple.html";
-    }else{
-        error.innerText = "Parece que esa no es la clave...💕";
-        card.classList.add("shake");
-        setTimeout(() => card.classList.remove("shake"), 400);
-    }
-}
-
-</script>

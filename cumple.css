@@ -1,0 +1,388 @@
+/* =========================
+   RESET Y CONFIGURACIÓN BASE
+   ========================= */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ead6f2;
+    font-family: 'Segoe UI', sans-serif;
+    color: #5a2a2a;
+    text-align: center;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+   ========================= */
+.contenedor{
+    max-width: 420px;
+    padding: 25px;
+    animation: aparecer 1.2s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   TEXTOS
+   ========================= */
+h1{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.mensaje{
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.instruccion{
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+/* =========================
+   PASTEL (CSS PURO)
+   ========================= */
+.pastel-pro{
+    position: relative;
+    width: 260px;
+    margin: 50px auto;
+}
+
+
+/* =========================
+   PISOS DEL PASTEL
+   ========================= */
+.piso{
+    position: relative;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #ffd1dc, #be57fa);
+    border-radius: 30px 30px 8px 8px;
+    overflow: hidden;
+
+    /* Volumen */
+    box-shadow:
+        inset 0 -10px 14px rgba(0,0,0,0.18),
+        0 10px 22px rgba(0,0,0,0.18);
+
+    /* Borde suave */
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* =========================
+   BRILLO TIPO GLASEADO
+   ========================= */
+.piso::before{
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 10%;
+    width: 80%;
+    height: 35%;
+    background: rgba(255,255,255,0.28);
+    border-radius: 50%;
+    animation: brilloSuave 4s infinite ease-in-out;
+}
+
+/* =========================
+   TOPPING SUPERIOR
+   ========================= */
+.topping{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32%;
+    background:
+        radial-gradient(#ff4973 1.5px, transparent 2px),
+        radial-gradient(#27c0d4 1.5px, transparent 2px),
+        radial-gradient(#845ec2 1.5px, transparent 2px),
+        radial-gradient(rgb(3, 180, 98) 1.5px, transparent 2px);
+    background-size: 26px 26px;
+    background-position:
+        0 0,
+        13px 7px,
+        7px 15px,
+        20px 20px;
+    border-radius: 30px 30px 14px 14px;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+
+
+
+
+/* =========================
+   NÚMERO EN EL PASTEL
+   ========================= */
+.numero-pastel{
+    position: absolute;
+    top: 30%; /* justo debajo de los sprinkles */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #fff;
+
+    /* efecto glaseado */
+    text-shadow:
+        0 2px 0 rgba(255,255,255,0.6),
+        0 4px 6px rgba(0,0,0,0.25);
+
+    letter-spacing: 2px;
+    pointer-events: none;
+}
+
+/* Para que se vea aún más "dibujado" */
+.numero-pastel::after{
+    content: "";
+    position: absolute;
+    inset: -6px -10px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+/* =========================
+   TAMAÑOS DE PISOS
+   ========================= */
+.piso-1{
+    width: 260px;
+    height: 80px;
+}
+
+.piso-2{
+    width: 200px;
+    height: 70px;
+    margin-bottom: -10px;
+}
+
+.piso-3{
+    width: 140px;
+    height: 60px;
+    margin-bottom: -10px;
+}
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+@keyframes brilloSuave{
+    0%{ opacity: .15; }
+    50%{ opacity: .35; }
+    100%{ opacity: .15; }
+}
+
+
+
+
+/* =========================
+   VELAS
+   ========================= */
+.velas{
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.vela{
+    width: 9px;
+    height: 47px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 4px,
+        #c75bdd 4px,
+        #c75bdd 8px
+    );
+    border-radius: 6px;
+    position: relative;
+}
+
+/* Flama */
+.flama{
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 14px;
+    background: radial-gradient(circle, #fff700, #ff9800, #ff5722);
+    border-radius: 50%;
+    animation: flamaCool 0.6s infinite alternate;
+    filter: drop-shadow(0 0 6px orange);
+}
+
+@keyframes flamaCool{
+    from{
+        transform: translateX(-50%) scale(1);
+    }
+    to{
+        transform: translateX(-50%) scale(0.75);
+    }
+}
+
+/* Apagar SOLO la flama */
+.velas.apagadas .flama{
+    opacity: 0;
+    animation: none;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+button{
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    background: #ff7eb3;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-weight: 600; /* ← AQUÍ */
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255,126,179,.6);
+    transition: transform .3s;
+}
+
+button:hover{
+    transform: scale(1.05);
+}
+
+/* Botón especial para soplar en PC */
+.btn-soplar{
+    margin-top: 30px;
+    padding: 14px 30px;
+    font-size: 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f17979, #f59e75);
+    box-shadow: 0 0 15px rgba(255,105,180,.5);
+}
+
+.btn-soplar:hover{
+    box-shadow: 0 0 25px rgba(44, 41, 253, 0.8);
+}
+
+/* =========================
+   UTILIDADES
+   ========================= */
+.oculto{
+    display: none;
+}
+
+
+
+/* =========================
+   ESCENA GENERAL
+   ========================= */
+.escena{
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+/* =========================
+   GORRITOS DECORATIVOS
+   ========================= */
+.gorritos{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gorritos span{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 28px solid transparent;
+    border-right: 28px solid transparent;
+    border-bottom: 45px solid #ff7eb3;
+    opacity: 0.75;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+/* posiciones */
+.gorritos span:nth-child(1){
+    top: 1%;
+    left: 10%;
+    transform: rotate(-12deg);
+}
+
+.gorritos span:nth-child(2){
+    top: 12%;
+    right: 10%;
+    border-bottom-color: #845ec2;
+    transform: rotate(15deg);
+}
+
+.gorritos span:nth-child(3){
+    bottom: 12%;
+    left: 12%;
+    border-bottom-color: #27d435;
+    transform: rotate(-8deg);
+}
+
+/* Gorritos extra */
+.gorritos span:nth-child(4){
+    top: 35%;
+    left: 5%;
+    border-bottom-color: #ff9671;
+    transform: rotate(8deg) scale(0.9);
+    opacity: 0.7;
+}
+
+.gorritos span:nth-child(5){
+    bottom: 3%;
+    right: 6%;
+    border-bottom-color: #f9c74f;
+    transform: rotate(-14deg) scale(0.95);
+    opacity: 0.7;
+}
+
+.gorritos span:nth-child(6){
+    top: 55%;
+    right: 5%;
+    border-bottom-color: #4d96ff;
+    transform: rotate(18deg) scale(0.85);
+    opacity: 0.65;
+}
+
+/* =========================
+   ASEGURAR CONTENIDO AL FRENTE
+   ========================= */
+.contenedor{
+    position: relative;
+    z-index: 2;
+}
+

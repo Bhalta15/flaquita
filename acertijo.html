@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acertijo🙊</title>
+<link rel="stylesheet" href="acertijo.css">
+</head>
+<body>
+<audio id="musicaFondo" src="audio/locos.mp3" autoplay loop></audio>
+<script>
+const musica = document.getElementById("musicaFondo");
+
+// Continuar desde donde estaba
+if(localStorage.getItem("musicaTiempo")) {
+    musica.currentTime = localStorage.getItem("musicaTiempo");
+}
+musica.play();
+
+// Guardar posición cada 500ms
+setInterval(() => {
+    localStorage.setItem("musicaTiempo", musica.currentTime);
+}, 500);
+</script>
+<div class="acceso">
+
+    <h2 class="titulo-acertijo">🫣Un pequeño acertijo🫣</h2>
+
+    <p class="acertijo">
+        De ser un apodo, se convirtió a una acción.
+        <br>Ya se han juntado varias. ¿Qué es?
+    </p>
+
+    <div class="input-acertijo">
+        <input 
+            type="text" 
+            id="respuesta"
+            placeholder="Escribe la palabra clave..."
+            autocomplete="off"
+        >
+        <button id="btnValidar" aria-label="Validar">🔓</button>
+    </div>
+
+    <p id="feedback" class="feedback"></p>
+
+    <button id="continueBtn" class="oculto" onclick="window.location.href='puzzle1.html'">
+        Continuar
+    </button>
+
+</div>
+
+<script src="acertijo.js"></script>
+</body>
+</html>

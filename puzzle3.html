@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Te amo mi cielo. Feliz Cumpleaños</title>
+<link rel="stylesheet" href="puzzle3.css">
+</head>
+<body>
+<audio id="musicaFondo" src="audio/locos.mp3" autoplay loop></audio>
+<script>
+const musica = document.getElementById("musicaFondo");
+
+// Continuar desde donde estaba
+if(localStorage.getItem("musicaTiempo")) {
+    musica.currentTime = localStorage.getItem("musicaTiempo");
+}
+musica.play();
+
+// Guardar posición cada 500ms
+setInterval(() => {
+    localStorage.setItem("musicaTiempo", musica.currentTime);
+}, 500);
+</script>
+<div class="acceso">
+    <h2 class="titulo-acertijo">"Te amo. Feliz Cumpleaños!!💘"</h2>
+
+    <!-- Puzzle -->
+    <div id="puzzle" class="puzzle"></div>
+
+    <!-- Mensaje -->
+    <p id="success" class="feedback"></p>
+
+    <!-- Botón continuar -->
+    <button id="continueBtn" onclick="nextPuzzle()">Continuar💖</button>
+</div>
+
+<script src="puzzle3.js"></script>
+</body>
+</html>
+

@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <title>Acceso especial 💖</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="index.css">
-    
+       <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<audio id="musicaFondo" src="audio/locos.mp3" autoplay loop></audio>
+<script>
+const musica = document.getElementById("musicaFondo");
 
+// Continuar desde donde estaba
+if(localStorage.getItem("musicaTiempo")) {
+    musica.currentTime = localStorage.getItem("musicaTiempo");
+}
+musica.play();
+
+// Guardar posición cada 500ms
+setInterval(() => {
+    localStorage.setItem("musicaTiempo", musica.currentTime);
+}, 500);
+</script>
 <div class="card" id="card">
     <h2>💖Acceso especial💖</h2>
     <p>
@@ -31,3 +44,8 @@
 <script src="index.js"></script>
 </body>
 </html>
+
+
+
+
+

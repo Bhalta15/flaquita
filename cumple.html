@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="cumple.css">
 </head>
 <body>
+<audio id="musicaFondo" src="audio/locos.mp3" autoplay loop></audio>
+<script>
+const musica = document.getElementById("musicaFondo");
+
+// Continuar desde donde estaba
+if(localStorage.getItem("musicaTiempo")) {
+    musica.currentTime = localStorage.getItem("musicaTiempo");
+}
+musica.play();
+
+// Guardar posición cada 500ms
+setInterval(() => {
+    localStorage.setItem("musicaTiempo", musica.currentTime);
+}, 500);
+</script>
 
 <!-- ESCENA GENERAL -->
 <div class="escena">
@@ -23,9 +38,6 @@
     <span></span>
     <span></span>
 </div>
-
-
-
     <!-- CONTENIDO PRINCIPAL -->
     <div class="contenedor">
         <h1>🎉Feliz Cumpleaños Preciosa🎉</h1>
@@ -82,3 +94,5 @@
 <script src="cumple.js"></script>
 </body>
 </html>
+
+

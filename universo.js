@@ -23,14 +23,14 @@ elementos.forEach(el => {
 
 // Mensajes aleatorios
 const mensajes = [
-    "Gracias por existir ✨",
-    "Eres mi paz 🤍",
-    "Te amo bastante 🌷",
-    "Mi bonita, te quiero 💫",
-    "Tu sonrisa me alegra ☀️",
-    "Aquí estoy para ti 🫶",
-    "Eres mi hogar 🏡",
-    "Mi universo eres tú ✨"
+    "Gracias por existir🥹",
+    "Eres mi paz🤍",
+    "Te amo bastante🌷",
+    "Mi bonita, te quiero💞",
+    "Tu sonrisa me alegra🐛",
+    "Aquí estoy para ti😘",
+    "Otro añito mas!!🎁",
+    "Mi universo eres tú✨"
 ];
 
 const contenedor = document.getElementById("estrellas-random");
@@ -54,3 +54,10 @@ for (let i = 0; i < 25; i++) {
 
     contenedor.appendChild(estrella);
 }
+document.querySelector('.continuar').addEventListener('click', () => {
+    window.location.href = 'acertijo.html';
+});
+
+
+
+

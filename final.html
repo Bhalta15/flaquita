@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felicidades Linda</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+
+<body>
+<audio id="musicaFondo" src="audio/locos.mp3" autoplay loop></audio>
+<script>
+const musica = document.getElementById("musicaFondo");
+
+// Continuar desde donde estaba
+if(localStorage.getItem("musicaTiempo")) {
+    musica.currentTime = localStorage.getItem("musicaTiempo");
+}
+musica.play();
+
+// Guardar posición cada 500ms
+setInterval(() => {
+    localStorage.setItem("musicaTiempo", musica.currentTime);
+}, 500);
+</script>
+<div class="container">
+    <h1 class="title">Te Adoro Mucho!!🥰🩵</h1>
+
+   <p class="message">
+Espero te la pases increíble y tengas un lindo día hoy mi amor,
+no olvides que te quiero y amo bastante y que siempre vas a
+contar conmigo para lo que sea. De verdad estoy muy feliz
+por seguir a tu lado en estos días, espero el próximo año
+volver a darte más sorpresas!🧡🙊Nuevamente felicidades a la cumpleañera
+más hermosa del planeta. Un abrazo y besito para ti.💋🥰
+<br><br>Att: Tú flaquito💖
+</p>
+  
+</div>
+
+
+<script src="final.js"></script>
+</body>
+</html>
+

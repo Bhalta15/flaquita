@@ -75,3 +75,6 @@ if (esMovil && window.DeviceMotionEvent) {
 function irAlUniverso() {
     window.location.href = "universo.html";
 }
+
+
+

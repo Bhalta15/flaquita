@@ -1,0 +1,125 @@
+/* ================== ESTILO GENERAL ================== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+
+       background: linear-gradient(135deg, #4facfe, #a18cd1);   
+
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centra vertical */
+}
+
+.acceso {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 25px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* SOLO CONTORNO */
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+
+/* ================== TITULO ================== */
+.titulo-acertijo {
+    font-size: 1.5rem; /* un poco más pequeño */
+    margin-bottom: 12px;
+    color: #000;
+
+    white-space: nowrap;   
+    overflow: hidden;      
+    text-overflow: ellipsis;
+}
+
+/* ================== PUZZLE ================== */
+.puzzle {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.piece {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.piece:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* ================== FEEDBACK ================== */
+.feedback {
+    font-size: 1rem;
+    margin-top: 10px;
+    min-height: 1.2em;
+}
+
+/* ================== BOTÓN CONTINUAR ================== */
+#continueBtn {
+    display: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e52ff5, #f575e4);
+    box-shadow: 0 0 15px rgba(243, 241, 247, 0.5);
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    animation: resplandor 2s infinite alternate;
+    width: fit-content;
+}
+
+#continueBtn:hover {
+    box-shadow: 0 0 25px rgba(63, 61, 163, 0.8);
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 500px) {
+    .puzzle {
+        max-width: 260px;
+        height: 260px;
+        gap: 3px;
+    }
+
+    .titulo-acertijo {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .puzzle {
+        max-width: 220px;
+        height: 220px;
+        gap: 2px;
+    }
+
+    .titulo-acertijo {
+        font-size: 1.2rem;
+    }
+}

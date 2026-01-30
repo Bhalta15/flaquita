@@ -1,0 +1,161 @@
+/* ================== ESTILO GENERAL ================== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+
+    background: linear-gradient(135deg, #4facfe, #a18cd1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ⚡ CENTRA VERTICAL */
+}
+
+.acceso {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 25px 20px;   /* espacio dentro del cuadrito */
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* ================= CUADRITO ================= */
+    background: rgba(255, 169, 130, 0.95); /* fondo blanco translúcido */
+    border-radius: 20px;                   /* bordes redondeados */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* sombra suave */
+    border: 2px solid rgba(0,0,0,0.1);      /* borde leve para resaltar */
+}
+ 
+/* ================== TITULO Y TEXTO ================== */
+.titulo-acertijo {
+    font-size: 1.4rem; /* un poco más pequeño para que quepa */
+    margin-bottom: 8px;
+    color: #000;
+
+    white-space: nowrap;   /* mantiene todo en una línea */
+    overflow: hidden;      
+    text-overflow: ellipsis; /* corta con "..." si aún es muy largo */
+}
+
+
+
+.acertijo {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+
+/* ================== INPUT Y BOTÓN ================== */
+.input-acertijo {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* ⚡ para que no se salga en pantallas pequeñas */
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.input-acertijo input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    flex: 1 1 150px; /* crece y se encoge según pantalla */
+    min-width: 120px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-acertijo input.correcto {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px #4CAF50;
+}
+
+.input-acertijo input.incorrecto {
+    border-color: #f44336;
+    box-shadow: 0 0 8px #f44336;
+}
+
+.input-acertijo button {
+    padding: 8px 14px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #432ff5, #7582f5);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.input-acertijo button:hover {
+    transform: scale(1.1);
+}
+
+/* ================== FEEDBACK ================== */
+.feedback {
+    font-size: 1rem;
+    margin-top: 10px;
+    min-height: 1.2em;
+}
+
+/* ================== BOTÓN CONTINUAR ================== */
+#continueBtn {
+    display: none;
+    margin-top: 15px;          /* mantiene posición original */
+    padding: 10px 20px;        /* tamaño original */
+    font-size: 1rem;           /* tamaño original */
+    border: none;
+    border-radius: 12px;       /* ahora igual al borde de .continuar */
+    background: linear-gradient(135deg, #3328c9, #7597f5); /* gradiente */
+    box-shadow: 0 0 15px rgba(243, 241, 247, 0.5);
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    animation: resplandor 2s infinite alternate; /* efecto */
+    width: fit-content;        /* ancho según contenido */
+}
+
+#continueBtn:hover {
+    box-shadow: 0 0 25px rgba(63, 61, 163, 0.8);
+}
+
+
+
+
+
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 500px) {
+    .input-acertijo {
+        gap: 6px;
+    }
+
+    .input-acertijo input {
+        font-size: 0.95rem;
+        flex: 1 1 100px;
+        min-width: 80px;
+    }
+
+    .input-acertijo button {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    #continueBtn {
+        font-size: 0.95rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .input-acertijo input {
+        min-width: 70px;
+    }
+}

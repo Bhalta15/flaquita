@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuestro Universo ✨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="universo.css">
+</head>
+<body>
+
+<div class="universo">
+    <!-- Botón Continuar -->
+    <button class="continuar">Continuar</button>
+
+    <!-- Leyenda del universo -->
+    <p class="leyenda-universo">
+        Tú eres el centro de mi univero🌖❤️
+    </p>
+    <!-- ✨ Estrellas decorativas generadas por JS -->
+    <div id="estrellas-random"></div>
+
+    <!-- ⭐ Estrellas importantes con mensajes -->
+    <div class="estrella" style="top:15%; left:20%;" data-texto="Gracias por tu amor✨"></div>
+    <div class="estrella" style="top:40%; left:70%;" data-texto="Eres mi lugar seguro💖"></div>
+    <div class="estrella" style="top:65%; left:30%;" data-texto="Te elijo todos los días🌷"></div>
+    <div class="estrella" style="top:25%; left:55%;" data-texto="Para ti, siempre🌙"></div>
+
+    <!-- 🪐 Planetas importantes -->
+    <div class="planeta planeta-1"
+         style="top:35%; left:5%;"
+         data-texto="09/05/2024✨<br>Nuestro comienzo">
+    </div>
+
+    <div class="planeta planeta-2"
+         style="top:10%; left:75%;"
+         data-texto="09/11/2024 💍<br>Te elegí para siempre">
+    </div>
+
+    <div class="planeta planeta-3"
+         style="top:85%; left:65%;"
+         data-texto="Hoy ❤️<br>Seguimos juntos">
+    </div>
+
+    <!-- 🌍 Centro del universo -->
+    <div class="centro">
+        <div class="emoji-tierra" style="font-size: 190px;">🌍</div>
+    </div>
+
+    <!-- 💬 Mensaje emergente -->
+    <div class="mensaje-universo oculto" id="mensaje"></div>
+
+</div>
+
+<script src="universo.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+<script>
+    const elementos = document.querySelectorAll('.estrella, .planeta');
+const mensaje = document.getElementById('mensaje');
+let timeoutMensaje;
+
+// Función para mostrar mensaje central
+function mostrarMensaje(texto, tiempo = 3000) {
+    clearTimeout(timeoutMensaje);
+
+    mensaje.innerHTML = texto;
+    mensaje.classList.remove('oculto');
+
+    timeoutMensaje = setTimeout(() => {
+        mensaje.classList.add('oculto');
+    }, tiempo);
+}
+
+// Estrellas y planetas principales
+elementos.forEach(el => {
+    el.addEventListener('click', () => {
+        mostrarMensaje(el.dataset.texto, 3500);
+    });
+});
+
+// Mensajes aleatorios
+const mensajes = [
+    "Gracias por existir ✨",
+    "Eres mi paz 🤍",
+    "Te amo bastante 🌷",
+    "Mi bonita, te quiero 💫",
+    "Tu sonrisa me alegra ☀️",
+    "Aquí estoy para ti 🫶",
+    "Eres mi hogar 🏡",
+    "Mi universo eres tú ✨"
+];
+
+const contenedor = document.getElementById("estrellas-random");
+
+for (let i = 0; i < 25; i++) {
+    const estrella = document.createElement("div");
+    estrella.classList.add("estrella-random");
+
+    const size = ["pequena", "mediana", "grande"];
+    estrella.classList.add(size[Math.floor(Math.random() * size.length)]);
+
+    estrella.style.top = Math.random() * 100 + "%";
+    estrella.style.left = Math.random() * 100 + "%";
+    estrella.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+    const texto = mensajes[Math.floor(Math.random() * mensajes.length)];
+
+    estrella.addEventListener("click", () => {
+        mostrarMensaje(texto, 2500);
+    });
+
+    contenedor.appendChild(estrella);
+}
+
+</script>
